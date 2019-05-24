@@ -1,4 +1,4 @@
-public class File extends Entity {
+public class File extends SystemObject {
     private String extension;
     private String path;
 

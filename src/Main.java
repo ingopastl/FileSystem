@@ -1,9 +1,20 @@
 import java.util.Scanner;
 
 public class Main {
+    static private Directory currentDirectory = Memory.getRoot();
+
     private static void processInput(String input) {
-        if (input.equals("help")) {
-            printHelp();
+        System.out.println("Current path: " + currentDirectory.getName() + "");
+        System.out.println("------------------");
+
+        switch (input){
+            case "help": printHelp();
+                break;
+            case "ls":
+                break;
+            default:
+                System.out.println("Not a command.");
+                break;
         }
     }
 
@@ -17,11 +28,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Directory currentDirectory = Memory.getRoot();
+
 
         System.out.println("---------Welcome to your file system---------");
-        System.out.println("Type 'help' if you want to see the available commands.");
         System.out.println("Current path: " + currentDirectory.getName() + "");
+        System.out.println("------------------");
+        System.out.println("Type 'help' if you want to see the available commands.");
 
         while (true) {
             Scanner reader = new Scanner(System.in);

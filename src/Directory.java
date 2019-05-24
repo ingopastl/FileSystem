@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Directory extends Entity {
+public class Directory extends SystemObject {
     private List<File> childs;
 
     Directory (String name) {

@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class SystemObject {
 
 	protected String name;
+	protected Directory parent = null;
 	
 	public String getName() {
 		return name;
@@ -19,7 +20,7 @@ public class SystemObject {
 		String r = null;
 		if (this instanceof Directory) {
 			Directory aux = (Directory) this;
-			r = Arrays.toString(aux.getReferences().toArray());
+			r = "name: " + name + "\n" + Arrays.toString(aux.getReferences().toArray());
 		} else if (this instanceof File) {
 			File aux = (File) this;
 			r = aux.getName();
@@ -27,4 +28,13 @@ public class SystemObject {
 		
 		return r;
 	}
+	
+	public void setParent(Directory parent) {
+		this.parent = parent;
+	}
+
+	public Directory getParent() {
+		return parent;
+	}
+
 }

@@ -7,6 +7,12 @@ public class File extends SystemObject{
 		super();
 		this.name = name;
 	}
+	
+	public File(String name, Directory parent) {
+		super();
+		this.name = name;
+		this.parent = parent;
+	}
 
 	public String getName() {
 		return name;

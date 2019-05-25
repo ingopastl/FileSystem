@@ -7,15 +7,15 @@ public class Main {
         System.out.println("Current path: " + currentDirectory.getName() + "");
         System.out.println("------------------");
 
-        switch (input){
-            case "help": printHelp();
-                break;
-            case "ls":
-                break;
-            default:
-                System.out.println("Not a command.");
-                break;
-        }
+//        switch (input){
+//            case "help": printHelp();
+//                break;
+//            case "ls":
+//                break;
+//            default:
+//                System.out.println("Not a command.");
+//                break;
+//        }
     }
 
     private static void printHelp() {

@@ -17,10 +17,10 @@ public class SystemObject {
 	
 	@Override
 	public String toString() {
-		String r = null;
+		String r = "";
 		if (this instanceof Directory) {
 			Directory aux = (Directory) this;
-			r = "name: " + name + "\n" + Arrays.toString(aux.getReferences().toArray());
+			r = "name: " + name + "\t" + Arrays.toString(aux.getReferences().toArray());
 		} else if (this instanceof File) {
 			File aux = (File) this;
 			r = aux.getName();

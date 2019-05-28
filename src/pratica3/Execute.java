@@ -17,7 +17,7 @@ public class Execute {
 		f.runCommand("touch f.txt");
 		
 		
-		System.out.println(f.accessObject("/users/henrique"));
+		System.out.println(f.accessObject("/users/henrique") + "\n");
 		Scanner s = new Scanner(System.in);
 		
 		while(true) {

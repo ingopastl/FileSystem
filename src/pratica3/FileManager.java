@@ -32,7 +32,7 @@ public class FileManager {
 				pwd = root;
 			}
 		} else if (commands[0].equals("pwd")) {
-			System.out.println(pwd);
+			System.out.println(pwd + "\n");
 			
 			
 		} else if (commands[0].equals("touch")) {
@@ -41,7 +41,7 @@ public class FileManager {
 			} else {
 				System.err.println("File does not fit in disk");
 			}
-			System.out.println(mDisk);
+			System.out.println(mDisk + "\n");
 			
 			
 		} else if (commands[0].equals("mkdir")) {
@@ -50,14 +50,14 @@ public class FileManager {
 			} else {
 				System.err.println("Directory does not fit in disk");
 			}
-			System.out.println(mDisk);
+			System.out.println(mDisk + "\n");
 		} else if (commands[0].equals("rmdir")) {
 			SystemObject aux = accessObject(commands[1]);
 			if (aux instanceof Directory) {
 				aux.parent.getReferences().remove(aux);
 				System.out.println("Directory " + aux.name + " deleted");
 				mDisk.deallocate(aux);
-				System.out.println(mDisk);
+				System.out.println(mDisk + "\n");
 			} else {
 				System.err.println(aux.name + " is not a directory");
 			}
@@ -67,10 +67,10 @@ public class FileManager {
 				aux.parent.getReferences().remove(aux);
 				System.out.println("File " + aux.name + " deleted");
 				mDisk.deallocate(aux);
-				System.out.println(mDisk);
+				System.out.println(mDisk + "\n");
 			}
 		} else {
-			System.out.println(accessObject(command));
+			System.out.println(accessObject(command) + "\n");
 		}
 	}
 

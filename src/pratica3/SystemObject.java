@@ -20,12 +20,12 @@ public class SystemObject {
 		String r = "";
 		if (this instanceof Directory) {
 			Directory aux = (Directory) this;
-			r = "name: " + name + "\t" + Arrays.toString(aux.getReferences().toArray());
+			r = "Directory: '" + name + "' " + Arrays.toString(aux.getReferences().toArray());
 		} else if (this instanceof File) {
 			File aux = (File) this;
 			r = aux.getName();
 		} else r = "";
-		
+
 		return r;
 	}
 	

@@ -19,7 +19,7 @@ public class DiskManager {
 		
 		@Override
 		public String toString() {
-			return "Block "+ nBlock + " from obj ";
+			return "Blk("+ nBlock + ") obj (" + fileBlock.getName() + ")\n";
 		}
 	}
 
@@ -43,9 +43,6 @@ public class DiskManager {
 	}
 	
 	public void allocateFile(File d, int size) {
-		if (d==null) {
-			System.out.println("oi");
-		}
 		if (freeSpaces >= size) {
 			int count = 0;
 			Block aux = null;

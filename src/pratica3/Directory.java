@@ -34,11 +34,15 @@ public class Directory extends SystemObject{
 		return r;
 	}
 
-	public void newDirectory(String name) {
-		references.add(new Directory(name, this));
+	public Directory newDirectory(String name) {
+		Directory d = new Directory(name, this);
+		references.add(d);
+		return d;
 	}
 	
-	public void newFile(String name) {
-		references.add(new File(name, this));
+	public File newFile(String name) {
+		File f = new File(name, this);
+		references.add(f);
+		return f;
 	}
 }

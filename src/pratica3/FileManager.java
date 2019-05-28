@@ -38,8 +38,6 @@ public class FileManager {
 		} else if (commands[0].equals("touch")) {
 			if (mDisk.getFreeSpaces() >= 3) {
 				commandoTouch(commands);
-				SystemObject aux = accessObject(commands[1]);
-				mDisk.allocateFile((File)aux, 3);
 			} else {
 				System.err.println("File does not fit in disk");
 			}
@@ -49,8 +47,6 @@ public class FileManager {
 		} else if (commands[0].equals("mkdir")) {
 			if (mDisk.getFreeSpaces() >= 1) {
 				commandMkdir(commands);
-				SystemObject aux = accessObject(commands[1]);
-				mDisk.allocateDirectory((Directory)aux);
 			} else {
 				System.err.println("Directory does not fit in disk");
 			}
@@ -122,12 +118,17 @@ public class FileManager {
 			c += commands[1].charAt(j);
 		}
 		String dirname = "";
-		for (int j = i; j < commands[1].length(); j++) {
+		int j = 0;
+		if (commands[1].charAt(i) == '/') {
+			j++;
+		}
+		for (j += i; j < commands[1].length(); j++) {
 			dirname += commands[1].charAt(j);
 		}
 		Directory current = (Directory) accessObject(c);
 
-		current.newDirectory(dirname);
+		Directory aux = current.newDirectory(dirname);
+		mDisk.allocateDirectory(aux);
 		System.out.println(current);
 	}
 
@@ -141,12 +142,18 @@ public class FileManager {
 			c += commands[1].charAt(j);
 		}
 		String fileName = "";
-		for (int j = i; j < commands[1].length(); j++) {
+		int j = 0;
+		if (commands[1].charAt(i) == '/') {
+			j++;
+		}
+		for (j += i; j < commands[1].length(); j++) {
 			fileName += commands[1].charAt(j);
 		}
 		Directory current = (Directory) accessObject(c);
 
-		current.newFile(fileName);
+		File aux = current.newFile(fileName);
+		System.out.println(aux);
+		mDisk.allocateFile(aux, 3);
 		System.out.println(current);
 	}
 }

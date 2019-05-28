@@ -70,7 +70,12 @@ public class FileManager {
 				System.out.println(mDisk + "\n");
 			}
 		} else {
-			System.out.println(accessObject(command) + "\n");
+			SystemObject ls = accessObject(command);
+			if (ls == null) {
+				System.out.println("Non existent file/directory.");
+			} else {
+				System.out.println(accessObject(command) + "\n");
+			}
 		}
 	}
 
